@@ -1,14 +1,25 @@
+import 'dart:io';
 import 'dart:math';
+ 
+String generateRandomPassword(int length) {
 
-String generatePassword(int length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  Random random = Random();
-  return List.generate(length, (index) => characters[random.nextInt(characters.length)]).join();
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+  Random rand = Random();
+  StringBuffer password = StringBuffer();
+ 
+  for (int i = 0; i < length; i++) {
+    password.write(chars[rand.nextInt(chars.length)]);
+  }
+ 
+  return password.toString();
 }
-
+ 
 void main() {
-  int passwordLength = 6; // Specify password length
-  String password = generatePassword(passwordLength);
 
-  print("รหัสผ่านแบบสุ่ม: $password");
+  print('กรุณาใส่ความยาวของรหัสผ่านที่ต้องการ:');
+  int length = int.parse(stdin.readLineSync()!);
+  String password = generateRandomPassword(length);
+  print('รหัสผ่านที่สุ่มได้คือ: $password');
 }
+ 
