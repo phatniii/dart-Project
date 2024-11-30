@@ -2,13 +2,13 @@ import 'dart:io';
 
 void main() {
 
-  print("กรอกค่าบิลรวม :");
+  print("อาหารรวมทั้งหมด:");
   double totalBill = double.parse(stdin.readLineSync()!);
 
-  print("กรอกจำนวนคนที่จะแบ่งบิล:");
+  print("จำนวนคนทาน:");
   int numOfPeople = int.parse(stdin.readLineSync()!);
 
   double sum = totalBill / numOfPeople;
 
-  print("ค่าบิลที่แต่ละคนต้องจ่าย: ฿${sum.toStringAsFixed(2)}");
+  print("ค่าอาหารต่อคน: ฿${sum.toStringAsFixed(2)}");
 }
